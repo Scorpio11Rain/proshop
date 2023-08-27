@@ -14,5 +14,13 @@ userSchema.methods.matchPassword = async function(enteredPassword){
     return await brcrpt.compare(enteredPassword, this.password);
 }
 
+userSchema.pre('save', async function(next){
+    if (!this.isModified('password')){
+        next();
+    }
+    const salt = await brcrpt.genSalt(10);
+    this.password = await brcrpt.hash(this.password, salt);
+});
+
 const User = mongoose.model("User", userSchema);
 export default User;
