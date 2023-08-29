@@ -11,5 +11,4 @@ router.route("/profile").get(protect, getUserProfile).put(protect, updateUserPro
 router.route("/:id").delete(protect, admin,deleteUser).get(protect, admin, getUserByID).put(protect, admin, updateUser);
 
 
-
 export default router;
