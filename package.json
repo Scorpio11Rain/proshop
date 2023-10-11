@@ -10,7 +10,9 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:destroy": "node backend/seeder -d",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "generate-toc": "markdown-toc -i readme.md"
   },
   "author": "Brad Traversy",
   "license": "MIT",
@@ -22,12 +24,12 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.1",
-    "multer": "^1.4.5-lts.1",
-    "react-icons": "^4.11.0",
-    "react-router-bootstrap": "^0.26.2"
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "concurrently": "^7.6.0",
+    "markdown-toc": "^1.2.0",
     "nodemon": "^2.0.21"
   }
 }
